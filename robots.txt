@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://evcharginghub.github.io/sitemap.xml

@@ -1,0 +1,1069 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="google-site-verification" content="HoWofmErOOKMSn8dHeXvBTb5cGoEBEB1rQ7Y3CrUYgY" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>EV Charging Nearby — Find Electric Vehicle Charging Stations Near You</title>
+    <meta name="description" content="Find public EV charging stations near you with EV Charging Nearby. Search by city or ZIP code, or use your location, and see real distances, addresses and directions — powered by OpenStreetMap." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="EV Charging Nearby" />
+    <meta property="og:title" content="EV Charging Nearby — Find Electric Vehicle Charging Stations Near You" />
+    <meta property="og:description" content="Find public EV charging stations near you. Search by city or ZIP code, or use your location, and see real distances, addresses and directions — powered by OpenStreetMap." />
+    <meta property="og:url" content="https://evcharginghub.github.io/" />
+    <link rel="canonical" href="https://evcharginghub.github.io/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "EV Charging Nearby",
+          "url": "https://evcharginghub.github.io/"
+        },
+        {
+          "@type": "WebApplication",
+          "name": "EV Charging Nearby",
+          "url": "https://evcharginghub.github.io/",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "description": "A free tool that finds public electric vehicle charging stations near a location, using OpenStreetMap data, and shows distances, addresses and directions."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "How does EV Charging Nearby find charging stations?", "acceptedAnswer": { "@type": "Answer", "text": "When you search, your browser asks the free OpenStreetMap services for charging stations recorded near your location. The place name is converted to coordinates by Nominatim, and the stations themselves come from the Overpass API, which reads the OpenStreetMap database. Distances are then calculated in your browser and the results are sorted nearest first." } },
+            { "@type": "Question", "name": "Is the station information live? Can you guarantee a charger is free when I arrive?", "acceptedAnswer": { "@type": "Answer", "text": "No. There is no free, open live feed that reports whether an individual public charger is working or occupied right now. Our results show stations that exist in the OpenStreetMap database, but a charger could be busy, out of service, or restricted when you arrive. Always have a backup station in mind on longer trips." } },
+            { "@type": "Question", "name": "Does the site show connector types and charging speeds?", "acceptedAnswer": { "@type": "Answer", "text": "Only when OpenStreetMap volunteers have recorded them, and even then the details are not guaranteed. Connector types, socket counts and power ratings in community-mapped data can be incomplete or out of date, so check the charging network's own app or the signage at the station before you rely on a specific plug or speed." } },
+            { "@type": "Question", "name": "Is EV Charging Nearby free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The finder is completely free, needs no account and no sign-up. The underlying map data from OpenStreetMap is also free and open." } },
+            { "@type": "Question", "name": "Why did my search find no charging stations?", "acceptedAnswer": { "@type": "Answer", "text": "The most common reasons are a small search radius, a rural area with few public chargers, or a place that OpenStreetMap volunteers have not fully mapped yet. Try widening the radius to 10 or 25 miles, or search for the nearest town or city instead of a small village." } },
+            { "@type": "Question", "name": "How accurate are the distances shown?", "acceptedAnswer": { "@type": "Answer", "text": "Distances are straight-line distances calculated from the coordinates of your search point and each station, shown in miles. The actual driving distance will usually be a little longer because roads are not straight lines. Use the Directions link on a result to get the true road route in Google Maps." } },
+            { "@type": "Question", "name": "Does this website track or store my location?", "acceptedAnswer": { "@type": "Answer", "text": "No. If you tap \"Use my location\", your position is read by your own browser and used only to run that one search. Your coordinates are sent to the OpenStreetMap services (Nominatim and Overpass) so they can answer the query, but this website has no server and stores nothing about you." } },
+            { "@type": "Question", "name": "Can I find free EV charging with this tool?", "acceptedAnswer": { "@type": "Answer", "text": "The finder shows all mapped public stations, including ones at supermarkets, hotels, workplaces and public car parks where charging is sometimes free. Because pricing is set by each operator and changes often, the map data cannot reliably label a station as free, so our guide to finding free EV charging explains what to look for." } },
+            { "@type": "Question", "name": "What is the difference between Level 2 and DC fast charging?", "acceptedAnswer": { "@type": "Answer", "text": "Level 2 charging uses a 240-volt AC supply and typically adds around 20 to 40 miles of range per hour, which suits home charging and longer stops. DC fast charging feeds direct current straight to the battery and can add 100 miles or more in about half an hour, which suits motorway and road-trip stops. Our charging levels guide explains all three levels in detail." } },
+            { "@type": "Question", "name": "Which charging networks and car brands does this work for?", "acceptedAnswer": { "@type": "Answer", "text": "The finder is independent of any network or car brand. It lists stations from every operator that appears in OpenStreetMap — large networks, supermarket chargers, council car parks and small independent sites alike — so it works whatever electric car you drive." } }
+          ]
+        }
+      ]
+    }
+    </script>
+    <style>
+      :root {
+        --bg: #f6f8f5;
+        --surface: #ffffff;
+        --ink: #17251c;
+        --muted: #55665b;
+        --accent: #0c7a4b;
+        --accent-strong: #095f3a;
+        --accent-soft: #e3f2e9;
+        --line: #dce4dc;
+        --warn-bg: #fdf3e2;
+        --warn-ink: #7a5410;
+        --error-bg: #fdeceb;
+        --error-ink: #8c2b21;
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0e140f;
+          --surface: #17211a;
+          --ink: #e7efe9;
+          --muted: #a3b7a9;
+          --accent: #3ecf8e;
+          --accent-strong: #6fe0ab;
+          --accent-soft: #1c2f24;
+          --line: #2b3a2f;
+          --warn-bg: #33270f;
+          --warn-ink: #ecc887;
+          --error-bg: #3a1d19;
+          --error-ink: #f2a49c;
+          color-scheme: dark;
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-size: 17px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]) { min-height: 2.25rem; }
+      a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+      a:hover { color: var(--accent-strong); }
+
+      .site-nav {
+        position: sticky; top: 0; z-index: 20;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+      }
+      .site-nav-inner {
+        max-width: 1020px; margin: 0 auto; padding: 0 20px;
+        display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+        min-height: 58px;
+      }
+      .brand {
+        font-weight: 800; font-size: 1.12rem; color: var(--ink);
+        text-decoration: none; letter-spacing: -0.01em; margin-right: auto;
+        display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+      }
+      .brand:hover { color: var(--ink); }
+      .brand .bolt {
+        width: 26px; height: 26px; border-radius: 7px; flex: none;
+        background: var(--accent); color: #fff;
+        display: inline-flex; align-items: center; justify-content: center;
+      }
+      @media (prefers-color-scheme: dark) { .brand .bolt { color: #0e140f; } }
+      .nav-links { display: flex; flex-wrap: wrap; gap: 2px; }
+      .nav-links a {
+        color: var(--ink); text-decoration: none; font-weight: 600; font-size: 0.95rem;
+        padding: 10px 10px; border-radius: 8px; display: inline-flex; align-items: center; min-height: 44px;
+      }
+      .nav-links a:hover { background: var(--accent-soft); color: var(--ink); }
+      .nav-links a.active { color: var(--accent); }
+
+      .wrap { max-width: 1020px; margin: 0 auto; padding: 0 20px; }
+      .prose { max-width: 760px; }
+      .page { display: none; padding: 34px 0 56px; }
+      .page.current { display: block; }
+
+      h1, h2, h3 { line-height: 1.22; letter-spacing: -0.015em; }
+      h1 { font-size: 2.15rem; font-weight: 800; margin: 0 0 14px; }
+      h2 { font-size: 1.45rem; font-weight: 800; margin: 38px 0 10px; }
+      h3 { font-size: 1.13rem; font-weight: 700; margin: 26px 0 6px; }
+      p { margin: 0 0 14px; }
+      .lede { font-size: 1.13rem; color: var(--muted); margin-bottom: 22px; }
+      .article-body h2:first-child { margin-top: 10px; }
+      .byline { color: var(--muted); font-size: 0.92rem; margin-bottom: 20px; }
+      ul.plain { margin: 0 0 14px; padding-left: 22px; }
+      ul.plain li { margin-bottom: 6px; }
+
+      /* Finder */
+      .finder {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 22px;
+        margin: 26px 0 8px;
+      }
+      .finder h2 { margin: 0 0 4px; font-size: 1.3rem; }
+      .finder .sub { color: var(--muted); margin-bottom: 16px; font-size: 0.98rem; }
+      .search-row { display: flex; gap: 10px; flex-wrap: wrap; }
+      .search-row input[type="text"] {
+        flex: 1 1 240px; min-height: 48px;
+        font: inherit; font-size: 1rem;
+        padding: 10px 14px;
+        border: 1.5px solid var(--line); border-radius: 10px;
+        background: var(--bg); color: var(--ink);
+      }
+      .search-row input[type="text"]:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+      .btn {
+        font: inherit; font-weight: 700; font-size: 1rem;
+        min-height: 48px; padding: 10px 20px;
+        border-radius: 10px; border: 1.5px solid transparent;
+        cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      }
+      .btn-primary { background: var(--accent); color: #fff; }
+      .btn-primary:hover { background: var(--accent-strong); }
+      @media (prefers-color-scheme: dark) { .btn-primary { color: #0e140f; } .btn-primary:hover { color: #0e140f; } }
+      .btn-ghost { background: transparent; color: var(--accent); border-color: var(--accent); }
+      .btn-ghost:hover { background: var(--accent-soft); }
+      .btn[disabled] { opacity: 0.55; cursor: wait; }
+      .controls-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 14px; }
+      .controls-row label { font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }
+      .controls-row select {
+        font: inherit; font-size: 1rem; min-height: 44px;
+        padding: 8px 10px; border: 1.5px solid var(--line); border-radius: 10px;
+        background: var(--bg); color: var(--ink);
+      }
+      .status { margin-top: 16px; font-size: 0.98rem; min-height: 1.4em; }
+      .status:empty { margin-top: 0; min-height: 0; }
+      .notice { border-radius: 10px; padding: 12px 14px; margin-top: 14px; font-size: 0.95rem; }
+      .notice-warn { background: var(--warn-bg); color: var(--warn-ink); }
+      .notice-error { background: var(--error-bg); color: var(--error-ink); }
+      .notice p { margin: 0; }
+      .spinner {
+        width: 18px; height: 18px; border-radius: 50%; flex: none;
+        border: 3px solid var(--line); border-top-color: var(--accent);
+        display: inline-block; vertical-align: -3px; margin-right: 8px;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @media (prefers-reduced-motion: reduce) {
+        .spinner { animation: none; }
+        html { scroll-behavior: auto; }
+      }
+      .map-frame { margin-top: 18px; display: none; }
+      .map-frame.show { display: block; }
+      .map-frame iframe {
+        width: 100%; height: 340px; border: 1px solid var(--line); border-radius: 12px; display: block;
+        background: var(--surface);
+      }
+      .map-frame .map-note { font-size: 0.85rem; color: var(--muted); margin-top: 6px; }
+
+      .results-head { margin-top: 26px; display: none; }
+      .results-head.show { display: block; }
+      .results-head h3 { margin: 0 0 2px; font-size: 1.2rem; }
+      .results-head p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+      .results-list { list-style: none; margin: 6px 0 0; padding: 0; }
+      .result-item {
+        padding: 16px 2px; border-bottom: 1px solid var(--line);
+        display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap;
+      }
+      .result-main { flex: 1 1 260px; min-width: 0; }
+      .result-name { font-weight: 700; font-size: 1.05rem; margin: 0 0 2px; }
+      .result-meta { color: var(--muted); font-size: 0.94rem; margin: 0; }
+      .result-side { text-align: right; flex: none; }
+      .result-dist { font-weight: 800; font-size: 1.05rem; white-space: nowrap; }
+      .result-dist small { display: block; font-weight: 600; color: var(--muted); font-size: 0.78rem; }
+      .dir-link { font-weight: 700; display: inline-flex; align-items: center; min-height: 40px; }
+
+      /* Article list (plain, no cards) */
+      .article-list { list-style: none; margin: 10px 0 0; padding: 0; }
+      .article-list li { padding: 18px 0; border-bottom: 1px solid var(--line); }
+      .article-list li:first-child { padding-top: 6px; }
+      .article-list h3 { margin: 0 0 4px; font-size: 1.18rem; }
+      .article-list h3 a { text-decoration: none; }
+      .article-list h3 a:hover { text-decoration: underline; }
+      .article-list p { color: var(--muted); margin: 0; font-size: 0.98rem; }
+      .article-list .read { font-weight: 700; font-size: 0.92rem; }
+
+      /* FAQ */
+      details.faq {
+        border-bottom: 1px solid var(--line); padding: 6px 0;
+      }
+      details.faq summary {
+        font-weight: 700; font-size: 1.03rem; cursor: pointer;
+        padding: 10px 4px; min-height: 44px; display: flex; align-items: center;
+        list-style: none;
+      }
+      details.faq summary::-webkit-details-marker { display: none; }
+      details.faq summary::after { content: "+"; margin-left: auto; color: var(--accent); font-size: 1.3rem; font-weight: 800; padding-left: 12px; }
+      details.faq[open ] summary::after { content: "–"; }
+      details.faq .faq-a { padding: 0 4px 14px; color: var(--ink); }
+      details.faq .faq-a p:last-child { margin-bottom: 0; }
+
+      .back-link { font-weight: 700; display: inline-flex; align-items: center; min-height: 40px; margin-bottom: 8px; }
+      .related { margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--line); }
+      .related h2 { margin-top: 0; font-size: 1.2rem; }
+
+      footer {
+        border-top: 1px solid var(--line); background: var(--surface);
+        margin-top: 20px;
+      }
+      .footer-inner {
+        max-width: 1020px; margin: 0 auto; padding: 26px 20px 34px;
+        display: flex; flex-wrap: wrap; gap: 14px 34px; align-items: flex-start;
+      }
+      .footer-inner .f-brand { font-weight: 800; }
+      .footer-inner p { color: var(--muted); font-size: 0.92rem; max-width: 420px; margin: 4px 0 0; }
+      .footer-links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-left: auto; }
+      .footer-links a { color: var(--muted); font-size: 0.94rem; display: inline-flex; align-items: center; min-height: 40px; }
+      .footer-bottom {
+        max-width: 1020px; margin: 0 auto; padding: 0 20px 26px;
+        color: var(--muted); font-size: 0.9rem;
+      }
+
+      @media (max-width: 640px) {
+        body { font-size: 16px; }
+        h1 { font-size: 1.75rem; }
+        .finder { padding: 18px 16px; }
+        .search-row .btn { flex: 1 1 auto; }
+        .result-side { text-align: left; }
+        .map-frame iframe { height: 280px; }
+        .footer-links { margin-left: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Main navigation">
+      <div class="site-nav-inner">
+        <a class="brand" href="#/">
+          <span class="bolt" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg>
+          </span>
+          EV Charging Nearby
+        </a>
+        <div class="nav-links">
+          <a href="#/" data-nav="home">Home</a>
+          <a href="#/how-it-works" data-nav="how-it-works">How It Works</a>
+          <a href="#/articles" data-nav="articles">Articles</a>
+          <a href="#/faq" data-nav="faq">FAQ</a>
+          <a href="#/about" data-nav="about">About</a>
+          <a href="#/contact" data-nav="contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="wrap">
+
+      <!-- ============ HOME ============ -->
+      <section class="page" id="page-home">
+        <h1>Find EV charging stations near you</h1>
+        <p class="lede">Running low on charge, or planning a stop on a longer trip? EV Charging Nearby searches the open OpenStreetMap database for public electric vehicle charging stations around any town, city or ZIP code — or around where you are standing right now — and lists them nearest first, with real distances and a directions link for every station.</p>
+
+        <div class="finder" id="finder">
+          <h2>Charging station finder</h2>
+          <p class="sub">Type a city, town or ZIP code, or use your current location. Results come live from OpenStreetMap.</p>
+          <form class="search-row" id="search-form">
+            <input type="text" id="search-input" placeholder="City, town or ZIP code — e.g. Austin, TX or 90210" autocomplete="off" aria-label="City, town or ZIP code" />
+            <button type="submit" class="btn btn-primary" id="search-btn">Search</button>
+            <button type="button" class="btn btn-ghost" id="locate-btn">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/><circle cx="12" cy="12" r="8"/></svg>
+              Use my location
+            </button>
+          </form>
+          <div class="controls-row">
+            <label for="radius-select">Search radius
+              <select id="radius-select">
+                <option value="2">2 miles</option>
+                <option value="5">5 miles</option>
+                <option value="10" selected>10 miles</option>
+                <option value="25">25 miles</option>
+              </select>
+            </label>
+          </div>
+          <div class="status" id="status" role="status" aria-live="polite"></div>
+          <div id="notice-slot"></div>
+          <div class="map-frame" id="map-frame">
+            <iframe id="osm-map" title="OpenStreetMap view of the search area" loading="lazy"></iframe>
+            <p class="map-note">Map © OpenStreetMap contributors. The pin marks your search point; stations are listed below.</p>
+          </div>
+          <div class="results-head" id="results-head">
+            <h3 id="results-title"></h3>
+            <p id="results-sub"></p>
+          </div>
+          <ul class="results-list" id="results-list"></ul>
+        </div>
+
+        <div class="prose">
+          <h2>Charging away from home, without the guesswork</h2>
+          <p>Most electric car drivers do the bulk of their charging at home, but every driver eventually needs a public charger — on a road trip, at a hotel, during a day out, or simply because home charging is not an option. The hard part is rarely the charging itself; it is knowing where the nearest public station actually is before the battery gets uncomfortably low. That is the problem this page solves: type in where you are, and you get a straightforward list of the public charging stations around you, sorted by distance, each with its address and a directions link that opens a real road route in Google Maps.</p>
+          <p>If you are new to public charging, it helps to understand <a href="#/how-it-works">how it works</a> before you set off: how this finder pulls station data from OpenStreetMap, what the results do and do not tell you, and how to plan a stop. It also helps to know the difference between slow, fast and rapid chargers, which our guide to <a href="#/ev-charging-levels-explained">charging levels explained</a> covers in plain language — Level 1, Level 2 and DC fast charging each suit a different kind of stop.</p>
+          <p>Time matters too. A quick top-up on a rapid charger is a very different stop from an overnight Level 2 session, so before a long journey it is worth reading up on <a href="#/how-long-to-charge-ev">how long it takes to charge an EV</a> and planning your breaks around it. And if you would rather not pay at all, some supermarkets, hotels, workplaces and public car parks still offer charging for free — our guide to <a href="#/free-ev-charging">free EV charging</a> explains where to look and what to check before you rely on it.</p>
+          <p>One honest note about the results above: station locations come from OpenStreetMap, a map built and maintained by volunteers, and there is no free live feed that reports whether a specific charger is free, busy or working at this moment. Connector types and charging speeds are shown only where mappers have recorded them and are never guaranteed. Treat this finder as an excellent way to discover where stations are, then confirm the final details — plug type, price and live availability — in the operator's own app or on the station itself when you arrive.</p>
+
+          <h2>From the articles</h2>
+          <ul class="article-list">
+            <li>
+              <h3><a href="#/ev-charging-levels-explained">EV Charging Levels Explained: Level 1, Level 2 and DC Fast Charging</a></h3>
+              <p>What the three charging levels actually mean, how fast each one adds range, where you will find them, and which level suits home charging, daily driving and long road trips.</p>
+              <a class="read" href="#/ev-charging-levels-explained">Read the article</a>
+            </li>
+            <li>
+              <h3><a href="#/how-long-to-charge-ev">How Long Does It Take to Charge an Electric Car?</a></h3>
+              <p>Real-world charging times explained: why battery size, charger power and the 20-to-80-percent rule matter more than the headline figures, with typical times for each kind of charger.</p>
+              <a class="read" href="#/how-long-to-charge-ev">Read the article</a>
+            </li>
+            <li>
+              <h3><a href="#/free-ev-charging">How to Find Free EV Charging Near You</a></h3>
+              <p>Free charging still exists at supermarkets, hotels, workplaces and public car parks. Here is where to look, how to spot it, and the etiquette that keeps it free for everyone.</p>
+              <a class="read" href="#/free-ev-charging">Read the article</a>
+            </li>
+          </ul>
+          <p>Browse the full list on our <a href="#/articles">articles page</a>, or check the <a href="#/faq">frequently asked questions</a> if something about the finder is unclear.</p>
+        </div>
+      </section>
+
+      <!-- ============ HOW IT WORKS ============ -->
+      <section class="page" id="page-how-it-works">
+        <div class="prose article-body">
+          <a class="back-link" href="#/">← Back to the finder</a>
+          <h1>How It Works</h1>
+          <p class="lede">EV Charging Nearby is a small, honest tool built entirely on free, open services. This page explains exactly what happens when you run a search, where the data comes from, and what the results can and cannot promise.</p>
+
+          <h2>Step 1: Turning your search into a point on the map</h2>
+          <p>Every search starts with a single point — a latitude and longitude. If you tap "Use my location", your browser asks your device for its position and uses that. If you type a city, town or ZIP code instead, your browser sends the text to Nominatim, the free geocoding service run for the OpenStreetMap project, which converts the place name into coordinates. Nothing is typed into a server of ours: this website has no server at all, and your search runs entirely in your own browser.</p>
+
+          <h2>Step 2: Asking OpenStreetMap for stations</h2>
+          <p>With a point established, your browser queries the Overpass API, a read-only service that searches the OpenStreetMap database. The query asks for everything tagged as a charging station (in OpenStreetMap terms, <em>amenity=charging_station</em>) within the radius you chose — 2, 5, 10 or 25 miles. Because public Overpass servers can occasionally be busy, the finder asks three independent mirror servers at the same time and uses whichever answers first, with an overall limit of 60 seconds. If none of them can be reached, you will see an honest error message rather than a made-up result.</p>
+
+          <h2>Step 3: Measuring real distances</h2>
+          <p>OpenStreetMap returns the coordinates of each station. Your browser then calculates the straight-line distance from your search point to every station using the haversine formula — the standard way of measuring distance over the curved surface of the Earth — and sorts the list nearest first. These are "as the crow flies" distances in miles, so the drive itself will usually be a little longer; that is why every result carries a Directions link that opens the true road route in Google Maps. The embedded map on the results page is an OpenStreetMap view centred on your search point, so you can see the shape of the area at a glance.</p>
+
+          <h2>Where the data comes from — and its limits</h2>
+          <p>OpenStreetMap is a map of the world built by volunteers, a little like Wikipedia. Its charging station coverage is very good in most towns and cities and improves every week, but it is not perfect: a brand-new station may not be mapped yet, a removed one may linger, and details such as the number of sockets are recorded for some stations and not others. If you spot a station that is missing or wrong, you can create a free OpenStreetMap account and fix the map yourself — every driver who uses open data benefits.</p>
+          <p>The most important limit to understand is availability. There is no free, open, live feed that reports whether an individual public charger is switched on, occupied or out of order at this moment. Commercial networks know the status of their own chargers, but they do not publish that information openly for tools like this one. So while we can tell you with confidence where stations are, we cannot guarantee that a particular charger will be free or working when you arrive, and connector types and charging speeds — where they appear in the data at all — are not guaranteed either. On any trip that matters, pick a backup station from the list before you set off, and confirm live details in the network operator's own app.</p>
+
+          <h2>Your privacy</h2>
+          <p>Because the whole tool runs in your browser, there is no account, no sign-up and no tracking by us. Your location is used only for the search you asked for. To answer that search, your coordinates or search text are necessarily sent to the OpenStreetMap services (Nominatim and the Overpass mirrors), which are operated by the OpenStreetMap community and its partners under their own privacy policies. You can read more in our <a href="#/privacy-policy">privacy policy</a>.</p>
+
+          <h2>Next steps</h2>
+          <p>Ready to search? Head back to the <a href="#/">charging station finder</a>. If you want to understand the stations you will find, read our guide to <a href="#/ev-charging-levels-explained">charging levels explained</a>, and if time is your main concern, see <a href="#/how-long-to-charge-ev">how long it takes to charge an EV</a>.</p>
+        </div>
+      </section>
+
+      <!-- ============ ARTICLES INDEX ============ -->
+      <section class="page" id="page-articles">
+        <div class="prose">
+          <h1>Articles</h1>
+          <p class="lede">Plain-English guides to charging an electric car in the real world — written by us, in full, with no jargon left unexplained.</p>
+          <ul class="article-list">
+            <li>
+              <h3><a href="#/ev-charging-levels-explained">EV Charging Levels Explained: Level 1, Level 2 and DC Fast Charging</a></h3>
+              <p>Level 1, Level 2 and DC fast charging sound like marketing labels, but they describe three genuinely different ways of getting energy into a battery. This guide explains how each level works, how many miles of range it adds per hour, where you are likely to find it, what it tends to cost, and which level makes sense for home charging, daily driving and long-distance trips.</p>
+              <a class="read" href="#/ev-charging-levels-explained">Read the article</a>
+            </li>
+            <li>
+              <h3><a href="#/how-long-to-charge-ev">How Long Does It Take to Charge an Electric Car?</a></h3>
+              <p>"It depends" is the honest answer — but it depends on things you can understand and plan around. This article walks through battery size, charger power, charging curves and the 20-to-80-percent rule, then gives realistic time ranges for home charging, public Level 2 posts and rapid chargers, plus tips for spending less time plugged in on a road trip.</p>
+              <a class="read" href="#/how-long-to-charge-ev">Read the article</a>
+            </li>
+            <li>
+              <h3><a href="#/free-ev-charging">How to Find Free EV Charging Near You</a></h3>
+              <p>Not every public charger costs money. Supermarkets, hotels, workplaces, car parks and even some rapid-charging sites still offer free charging to attract customers and guests. This guide explains where free charging hides, how to find it with the finder on this site, what "free" usually does and does not include, and the simple etiquette that keeps these chargers available for everyone.</p>
+              <a class="read" href="#/free-ev-charging">Read the article</a>
+            </li>
+          </ul>
+          <p>Looking for a charger right now? Go straight to the <a href="#/">station finder</a>.</p>
+        </div>
+      </section>
+
+      <!-- ============ ARTICLE: CHARGING LEVELS ============ -->
+      <section class="page" id="page-ev-charging-levels-explained">
+        <div class="prose article-body">
+          <a class="back-link" href="#/articles">← All articles</a>
+          <h1>EV Charging Levels Explained: Level 1, Level 2 and DC Fast Charging</h1>
+          <p class="byline">A plain-English guide to the three ways of charging an electric car.</p>
+
+          <p>Ask how an electric car charges and you will quickly hear about "levels" — Level 1, Level 2 and DC fast charging. The labels come from North American charging standards, but the ideas behind them apply everywhere: they describe how much electrical power is flowing into the car, and therefore how quickly the battery fills up. Once you understand the three levels, the rest of EV ownership — home charging, public charging, road trips — falls into place. This guide explains each level in turn: how it works, how fast it is, where you will find it and what it is best used for.</p>
+
+          <h2>Level 1: the ordinary household socket</h2>
+          <p>Level 1 is the slowest form of charging, and the simplest: the car plugs into a standard household power outlet using the portable cable that comes with most electric cars. In North America that means a 120-volt supply; in much of the rest of the world, ordinary sockets deliver a similar gentle rate of charge. No installation, no special equipment, no electrician — if there is a socket within reach of the car, you can charge.</p>
+          <p>The trade-off is speed. Level 1 typically adds around 3 to 5 miles of range for every hour the car is plugged in. That sounds painfully slow, and for a big battery it is: filling a large EV from empty could take two days or more. But speed is not everything. The average driver covers far fewer miles per day than they think, and a car parked at home for ten or twelve hours overnight gains 30 to 60 miles on Level 1 — enough to cover many people's daily driving entirely. Level 1 is also gentle on the battery and costs nothing to set up, which makes it a sensible starting point for drivers with modest daily mileage, plug-in hybrids with small batteries, and anyone keeping a second car topped up.</p>
+
+          <h2>Level 2: the everyday workhorse</h2>
+          <p>Level 2 charging uses a 240-volt AC supply — the same kind of circuit that powers an electric oven or a tumble dryer — delivered through a dedicated charging unit, often called a wallbox at home or a charging post in public. Most home chargers and the great majority of public chargers you will find with our <a href="#/">station finder</a> are Level 2.</p>
+          <p>Level 2 is roughly three to seven times faster than Level 1. Depending on the car and the charger, it typically adds 20 to 40 miles of range per hour, which means a full charge overnight is realistic for almost any electric car, and a two-hour stop at a supermarket, gym or workplace adds a genuinely useful amount of range. This combination — fast enough for daily life, cheap enough to install widely — is why Level 2 has become the default: it is what most owners install at home, and what hotels, employers and car parks provide for guests and staff.</p>
+          <p>Two details are worth knowing. First, the car's own onboard charger sets the ceiling: the car converts AC power from the post into DC power for the battery, and if the car can only accept 7 kW, a more powerful post will not charge it any faster. Second, public Level 2 charging is sometimes free — a point we explore in our guide to <a href="#/free-ev-charging">free EV charging</a> — because businesses use it to attract customers who will stay for an hour or two.</p>
+
+          <h2>DC fast charging: built for the road</h2>
+          <p>DC fast charging — sometimes called rapid charging, or Level 3 in casual conversation, though that is not an official standard — works differently. Instead of sending AC power to the car and letting the car convert it, the charger itself does the conversion and feeds direct current straight into the battery, bypassing the car's onboard charger entirely. That is how it achieves far higher power: commonly 50 kW on older units, 150 kW on many modern ones, and 250 to 350 kW at the fastest sites.</p>
+          <p>In practice, a DC fast charger can add 100 miles of range in roughly 15 to 30 minutes on a car that supports high charging speeds, and take a battery from 20 percent to 80 percent in about half an hour. This is the technology that makes long electric road trips practical: charge while you have a coffee and a break, then drive for another two or three hours. You will find DC fast chargers mainly along motorways and major routes, at dedicated charging hubs and at some fuel stations and retail parks.</p>
+          <p>There are caveats. Fast charging is usually the most expensive way to charge per unit of energy. Not every car can use every charger — connector types differ (CCS and Tesla's NACS dominate in North America, CHAdeMO is an older standard still used by some cars), and older or smaller EVs may charge at modest DC speeds or not support DC charging at all. Charging also slows markedly as the battery fills, which is why experienced drivers unplug at around 80 percent on a trip — a point covered in detail in our article on <a href="#/how-long-to-charge-ev">how long it takes to charge an EV</a>. Finally, live availability matters most at fast chargers, and as our <a href="#/how-it-works">how it works</a> page explains honestly, no free data feed can guarantee a specific unit is free or working when you arrive, so plan a backup on important journeys.</p>
+
+          <h2>Which level do you actually need?</h2>
+          <p>For most drivers the answer is a mix. If you can charge where you park overnight, Level 1 may honestly be enough, and Level 2 at home is close to perfect — you wake up to a full battery every day and rarely think about charging at all. If you cannot charge at home, a dependable public Level 2 charger near home or work becomes your anchor. And for everyone, DC fast charging is the road-trip tool: not an everyday habit, but the thing that turns a 300-mile day into a coffee stop. Match the charger to the stop you were going to make anyway, and charging stops feeling like a chore at all.</p>
+
+          <div class="related">
+            <h2>Keep reading</h2>
+            <p>See realistic charging times for each level in <a href="#/how-long-to-charge-ev">How Long Does It Take to Charge an Electric Car?</a>, or hunt down chargers that cost nothing in <a href="#/free-ev-charging">How to Find Free EV Charging Near You</a>. Then find stations near you with the <a href="#/">EV Charging Nearby finder</a>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ARTICLE: HOW LONG TO CHARGE ============ -->
+      <section class="page" id="page-how-long-to-charge-ev">
+        <div class="prose article-body">
+          <a class="back-link" href="#/articles">← All articles</a>
+          <h1>How Long Does It Take to Charge an Electric Car?</h1>
+          <p class="byline">Why charging time depends on the battery, the charger and one golden rule.</p>
+
+          <p>"How long does it take to charge?" is the first question almost everyone asks about electric cars, and the honest answer — anywhere from half an hour to two days — is useless without context. Charging time is not a fixed property of a car. It is the result of three things: how much energy the battery needs, how fast the charger can supply it, and how fast the car can accept it. Understand those three, and you can predict the charging time of any car at any charger. This article explains each factor, then gives realistic time ranges for the chargers you will actually meet.</p>
+
+          <h2>The simple maths underneath</h2>
+          <p>Batteries are measured in kilowatt-hours (kWh) — the amount of energy they hold. Chargers are measured in kilowatts (kW) — the rate at which they deliver energy. Divide the energy you need by the rate, and you get hours. Adding 40 kWh of energy on a 10 kW charger takes about four hours; the same 40 kWh on a 150 kW fast charger takes, in theory, about sixteen minutes. Real life is a little slower than the theory, for reasons explained below, but this one calculation explains most of the differences you will see. If the levels themselves are new to you, our guide to <a href="#/ev-charging-levels-explained">charging levels explained</a> is the place to start.</p>
+
+          <h2>Factor one: battery size and how empty it is</h2>
+          <p>A small city EV might carry a 40 kWh battery; a large family SUV might carry 100 kWh. Filling the big battery takes proportionally longer on the same charger. Just as important is how much energy you actually need to add. Drivers rarely charge from truly empty to truly full: a typical home session might add the 10 or 15 kWh used that day, and a typical rapid-charging stop adds enough to reach the next stop comfortably. Asking "how long to add the energy I need" gives a much friendlier answer than "how long from zero to one hundred percent."</p>
+
+          <h2>Factor two: the charger's power</h2>
+          <p>Chargers vary enormously. A Level 1 household socket delivers roughly 1.4 to 2 kW. A Level 2 home wallbox or public post usually delivers 7 to 11 kW, with some public units reaching 22 kW. DC fast chargers start around 50 kW and the newest reach 350 kW. On paper, then, the fastest chargers are more than a hundred times quicker than a household socket — which is why choosing the right charger for the stop matters more than anything else. Our <a href="#/">station finder</a> lists the public stations around you so you can pick the stop that fits your schedule.</p>
+
+          <h2>Factor three: the car itself, and the charging curve</h2>
+          <p>The car is the other half of the equation. On AC charging (Levels 1 and 2), the car's onboard charger sets the maximum rate, so a car limited to 7 kW gains nothing from a 22 kW post. On DC fast charging, the car's maximum DC rate is the ceiling — and even that headline figure is a peak, not a promise. Batteries charge fastest when they are fairly empty and slow down as they fill, to protect the battery's health; engineers call this the charging curve. A car advertised as charging at "up to 200 kW" might hold that speed only between 10 and 50 percent, then taper steadily. Cold weather slows things further, which is why many cars pre-condition the battery on the way to a fast charger when you set it as a navigation destination.</p>
+
+          <h2>The 20-to-80-percent rule</h2>
+          <p>These facts combine into the single most useful habit in EV driving: on a fast charger, arrive low and leave at about 80 percent. Between roughly 20 and 80 percent the battery charges at or near its best speed; the last 20 percent can take as long as everything before it. Two short stops between 20 and 80 percent are almost always quicker than one long stop to 100 percent. This is why manufacturers quote "10 to 80 percent" times — often 20 to 40 minutes on a modern car at a fast charger — and why experienced road-trippers plan around them.</p>
+
+          <h2>Realistic times, charger by charger</h2>
+          <p>Putting it together for a typical modern EV with a battery of around 60 kWh: on Level 1 at home, expect roughly 3 to 5 miles of range per hour — an overnight top-up, not a refill. On Level 2 at 7 to 11 kW, expect about 25 to 40 miles of range per hour, taking a near-empty battery to full in roughly six to nine hours — perfectly matched to a night's sleep or a working day. At a public Level 2 post during a two-hour shopping or cinema trip, expect to add a useful 50 to 80 miles. On a DC fast charger, expect 20 to 80 percent in around 25 to 45 minutes on most modern cars — faster on the newest models, slower on older ones — which is a coffee, a sandwich and a leg-stretch. And remember that many public Level 2 chargers cost little or nothing; our guide to <a href="#/free-ev-charging">free EV charging</a> shows where to find them.</p>
+
+          <h2>Spending less time charging</h2>
+          <p>A few habits make charging time nearly disappear. Charge where the car is parked anyway — at home overnight, or at work — and you will almost never wait for charging at all. On trips, pair charging stops with breaks you would take regardless, and unplug at 80 percent. Keep the battery between about 20 and 80 percent in daily use rather than running it to empty, which keeps every top-up short. And before a journey, use the finder on this site alongside our <a href="#/how-it-works">how it works</a> notes to line up a main stop and a backup, because the fastest charging plan is the one that does not depend on a single charger being free.</p>
+
+          <div class="related">
+            <h2>Keep reading</h2>
+            <p>New to the levels themselves? Read <a href="#/ev-charging-levels-explained">EV Charging Levels Explained: Level 1, Level 2 and DC Fast Charging</a>. Watching the budget instead of the clock? See <a href="#/free-ev-charging">How to Find Free EV Charging Near You</a>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ARTICLE: FREE CHARGING ============ -->
+      <section class="page" id="page-free-ev-charging">
+        <div class="prose article-body">
+          <a class="back-link" href="#/articles">← All articles</a>
+          <h1>How to Find Free EV Charging Near You</h1>
+          <p class="byline">Where free charging hides, how to spot it, and how to use it fairly.</p>
+
+          <p>Public charging usually costs money, and rapid charging on a motorway can cost as much per mile as petrol. But scattered through every town is a quieter network of chargers that cost nothing at all — provided by businesses and organisations that see free electricity as a cheap way to win your custom, your booking or your loyalty. Free charging will rarely be the fastest option, and it comes with unwritten rules, but if you know where to look it can take a real bite out of your running costs. This guide explains where free charging hides, how to find it near you, and how to use it without spoiling it for everyone else.</p>
+
+          <h2>Why would anyone give charging away?</h2>
+          <p>The economics are simple. A Level 2 charger delivering power for two hours hands over roughly 14 kWh of electricity — a modest cost to the business — while the driver spends those two hours inside a shop, a restaurant, a hotel or a cinema spending considerably more. Free charging is a marketing expense, and a rather clever one: it attracts exactly the customers a business wants, keeps them on the premises longer, and costs less than most advertising. That is why the overwhelming majority of free chargers are Level 2 units suited to a dwell of an hour or more, rather than fast chargers for passing traffic — if the distinction is new to you, our <a href="#/ev-charging-levels-explained">charging levels explained</a> guide covers it.</p>
+
+          <h2>Supermarkets and retail parks</h2>
+          <p>The classic home of free charging is the supermarket car park. Several large chains installed Level 2 posts and made them free for customers while they shop, sometimes activated with a tap of a bank card or the store's app even when the session itself is free. Retail parks, garden centres, furniture stores and outlet villages do the same. The catch is usually time: many car parks limit stays to two or three hours, and the charger is only free while you are a genuine customer. A weekly shop that takes an hour can quietly return 25 to 40 miles of range — which, repeated every week, adds up to serious free mileage over a year.</p>
+
+          <h2>Hotels, restaurants and attractions</h2>
+          <p>Hotels are the other great source. Destination chargers at hotels, guest houses and holiday parks are frequently free for overnight guests, and arriving with a low battery and leaving with a full one is one of the genuine pleasures of electric travel. Restaurants, pubs, visitor attractions and leisure centres increasingly offer the same for diners and ticket holders. The golden rule is to ask: some hotels switch chargers on at reception, some keep them for guests only, and a polite question at booking stage both reserves your charge and confirms it is actually free. If you are planning a trip, our article on <a href="#/how-long-to-charge-ev">how long it takes to charge an EV</a> will help you judge whether an overnight Level 2 session covers the next day's driving — it almost always does.</p>
+
+          <h2>Workplaces, councils and car parks</h2>
+          <p>Many employers provide free workplace charging as a staff perk; if yours does not yet, it is worth asking, since incentives for installing workplace chargers exist in many regions. Local councils and public car parks are another source: some towns still offer free charging in municipal car parks to encourage EV adoption and town-centre visits, though parking charges may still apply even when the electricity does not. Universities, hospitals and park-and-ride sites round out the list. These chargers are often the least advertised, which is exactly why they are worth hunting for.</p>
+
+          <h2>How to actually find them</h2>
+          <p>Start with the <a href="#/">finder on this site</a>: search your town or the area you are visiting, and look at the stations at supermarkets, hotels and public car parks in the results — those categories are where free charging concentrates. Then verify before you rely on it. Here we have to be honest, as we are on our <a href="#/how-it-works">how it works</a> page: map data records where chargers are, but pricing belongs to each operator, changes often, and is not reliably recorded in any free database — so no honest tool can simply label a station "free". Check the operator's app, the business's website, or reviews from recent visitors, and treat your first visit as a scouting trip. If a charger turns out to be paid, you have lost nothing; if it is free, you have found a regular stop worth keeping.</p>
+
+          <h2>The etiquette that keeps it free</h2>
+          <p>Free charging survives on goodwill, and a few simple habits protect it. Only plug in when you genuinely need charge, and move the car when you are done — a full car sitting on a free charger all day is the fastest way to get the charger removed or priced. Respect time limits and customer-only rules; they are the terms of the gift. Leave the cable tidy, report faults to the business rather than just driving off, and if the business is a café or shop, buying something is both fair and the entire point. Drivers who treat free chargers as shared community resources find they are still there next year; drivers who treat them as an entitlement tend to find a payment terminal fitted by spring.</p>
+
+          <h2>Is free charging worth the effort?</h2>
+          <p>For most drivers, free charging is a bonus rather than a strategy: home charging, if you have it, will still be your cheapest and most convenient option, and no one should drive ten miles out of their way to save the price of a coffee. But folded into journeys you are making anyway — the weekly shop, the overnight stay, the working day — free public charging quietly removes a noticeable slice of your running costs, and there is a particular satisfaction in a full battery that cost nothing. Find the stations first, verify the price second, and enjoy the miles.</p>
+
+          <div class="related">
+            <h2>Keep reading</h2>
+            <p>Understand the chargers you will meet in <a href="#/ev-charging-levels-explained">EV Charging Levels Explained: Level 1, Level 2 and DC Fast Charging</a>, plan your stops with <a href="#/how-long-to-charge-ev">How Long Does It Take to Charge an Electric Car?</a>, then search the <a href="#/">station finder</a> for supermarkets, hotels and car parks near you.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FAQ ============ -->
+      <section class="page" id="page-faq">
+        <div class="prose">
+          <h1>Frequently Asked Questions</h1>
+          <p class="lede">Straight answers about how the finder works, what its data can promise, and what it honestly cannot.</p>
+
+          <details class="faq">
+            <summary>How does EV Charging Nearby find charging stations?</summary>
+            <div class="faq-a"><p>When you search, your browser asks the free OpenStreetMap services for charging stations recorded near your location. The place name is converted to coordinates by Nominatim, and the stations themselves come from the Overpass API, which reads the OpenStreetMap database. Distances are then calculated in your browser and the results are sorted nearest first. Our <a href="#/how-it-works">how it works</a> page explains the process in full.</p></div>
+          </details>
+          <details class="faq">
+            <summary>Is the station information live? Can you guarantee a charger is free when I arrive?</summary>
+            <div class="faq-a"><p>No. There is no free, open live feed that reports whether an individual public charger is working or occupied right now. Our results show stations that exist in the OpenStreetMap database, but a charger could be busy, out of service, or restricted when you arrive. Always have a backup station in mind on longer trips.</p></div>
+          </details>
+          <details class="faq">
+            <summary>Does the site show connector types and charging speeds?</summary>
+            <div class="faq-a"><p>Only when OpenStreetMap volunteers have recorded them, and even then the details are not guaranteed. Connector types, socket counts and power ratings in community-mapped data can be incomplete or out of date, so check the charging network's own app or the signage at the station before you rely on a specific plug or speed. If you are unsure what the speeds mean, read our guide to <a href="#/ev-charging-levels-explained">charging levels explained</a>.</p></div>
+          </details>
+          <details class="faq">
+            <summary>Is EV Charging Nearby free to use?</summary>
+            <div class="faq-a"><p>Yes. The finder is completely free, needs no account and no sign-up. The underlying map data from OpenStreetMap is also free and open.</p></div>
+          </details>
+          <details class="faq">
+            <summary>Why did my search find no charging stations?</summary>
+            <div class="faq-a"><p>The most common reasons are a small search radius, a rural area with few public chargers, or a place that OpenStreetMap volunteers have not fully mapped yet. Try widening the radius to 10 or 25 miles, or search for the nearest town or city instead of a small village.</p></div>
+          </details>
+          <details class="faq">
+            <summary>How accurate are the distances shown?</summary>
+            <div class="faq-a"><p>Distances are straight-line distances calculated from the coordinates of your search point and each station, shown in miles. The actual driving distance will usually be a little longer because roads are not straight lines. Use the Directions link on a result to get the true road route in Google Maps.</p></div>
+          </details>
+          <details class="faq">
+            <summary>Does this website track or store my location?</summary>
+            <div class="faq-a"><p>No. If you tap "Use my location", your position is read by your own browser and used only to run that one search. Your coordinates are sent to the OpenStreetMap services (Nominatim and Overpass) so they can answer the query, but this website has no server and stores nothing about you. See our <a href="#/privacy-policy">privacy policy</a> for details.</p></div>
+          </details>
+          <details class="faq">
+            <summary>Can I find free EV charging with this tool?</summary>
+            <div class="faq-a"><p>The finder shows all mapped public stations, including ones at supermarkets, hotels, workplaces and public car parks where charging is sometimes free. Because pricing is set by each operator and changes often, the map data cannot reliably label a station as free, so our guide to <a href="#/free-ev-charging">finding free EV charging</a> explains what to look for.</p></div>
+          </details>
+          <details class="faq">
+            <summary>What is the difference between Level 2 and DC fast charging?</summary>
+            <div class="faq-a"><p>Level 2 charging uses a 240-volt AC supply and typically adds around 20 to 40 miles of range per hour, which suits home charging and longer stops. DC fast charging feeds direct current straight to the battery and can add 100 miles or more in about half an hour, which suits motorway and road-trip stops. Our <a href="#/ev-charging-levels-explained">charging levels guide</a> explains all three levels in detail.</p></div>
+          </details>
+          <details class="faq">
+            <summary>Which charging networks and car brands does this work for?</summary>
+            <div class="faq-a"><p>The finder is independent of any network or car brand. It lists stations from every operator that appears in OpenStreetMap — large networks, supermarket chargers, council car parks and small independent sites alike — so it works whatever electric car you drive.</p></div>
+          </details>
+
+          <p style="margin-top:26px">Still stuck? <a href="#/contact">Contact us</a> and we will do our best to help.</p>
+        </div>
+      </section>
+
+      <!-- ============ ABOUT ============ -->
+      <section class="page" id="page-about">
+        <div class="prose article-body">
+          <h1>About EV Charging Nearby</h1>
+          <p class="lede">A free, independent tool that helps electric car drivers find public charging stations, built on open data.</p>
+          <p>EV Charging Nearby exists for one simple reason: finding a public charger should not be the hardest part of owning an electric car. Drivers told the same story again and again — the car is wonderful, the charging is fine, but knowing where the nearest public station is, especially somewhere unfamiliar, meant juggling several apps, accounts and maps. We built a single page that answers that one question quickly: where are the charging stations near me, how far away are they, and how do I get to one?</p>
+          <p>The site is deliberately built on open data. Station locations come from OpenStreetMap, the community-built map of the world that anyone can improve, and the searches run on the project's free Nominatim and Overpass services. That choice keeps the tool free for every visitor, independent of any single charging network, and honest about its limits — open data shows where stations are, but no free feed exists for live availability, a limitation we explain openly in our <a href="#/faq">FAQ</a> rather than papering over.</p>
+          <p>Alongside the finder, we publish a small library of plain-English <a href="#/articles">articles</a> about charging in the real world: what the charging levels mean, how long charging actually takes, and how to find charging that costs nothing. Everything on the site is written by us, in our own words, for drivers rather than for engineers.</p>
+          <p>EV Charging Nearby is not affiliated with any car manufacturer, charging network or energy company, and no operator can pay to appear higher in the results — the list is always simply nearest first. If you have a suggestion, a correction, or a station that should be on the map, <a href="#/contact">get in touch</a>.</p>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section class="page" id="page-contact">
+        <div class="prose article-body">
+          <h1>Contact</h1>
+          <p class="lede">Questions, corrections and suggestions are all welcome.</p>
+          <p>The fastest way to reach us is by email:</p>
+          <p style="font-size:1.15rem"><a href="mailto:contact@evcharginghub.github.io">contact@evcharginghub.github.io</a></p>
+          <h2>What to write about</h2>
+          <p><strong>A station is missing or wrong.</strong> Station data comes from OpenStreetMap, so the quickest fix is to edit the map there — but do tell us too, especially if a listed station has closed or moved, and we will help get the record corrected.</p>
+          <p><strong>The finder did something odd.</strong> If a search fails or results look wrong, tell us the place you searched for, the radius you chose and roughly when it happened. Because searches run in your browser using the OpenStreetMap services, occasional slow responses usually mean those public servers are busy; trying again a minute later normally works.</p>
+          <p><strong>Article ideas.</strong> Our <a href="#/articles">articles</a> are written for real drivers. If there is a charging topic you wish someone would explain plainly, we would like to hear it.</p>
+          <p>We read every message and reply to as many as we can. Please do not send account details, passwords or payment information — we will never ask for them, because the site has no accounts and takes no payments.</p>
+        </div>
+      </section>
+
+      <!-- ============ PRIVACY ============ -->
+      <section class="page" id="page-privacy-policy">
+        <div class="prose article-body">
+          <a class="back-link" href="#/">← Back to home</a>
+          <h1>Privacy Policy</h1>
+          <p class="byline">Last updated: 2026.</p>
+          <p>EV Charging Nearby is a static website with no server, no accounts and no database. That design shapes everything about your privacy: there is very little we could collect even if we wanted to, and we do not want to.</p>
+          <h2>What happens when you search</h2>
+          <p>All searching happens in your own web browser. If you use the "Use my location" button, your browser asks your device for its position; that position is used only to run the search you requested. Whether you search by location or by typing a place, your browser sends the search point or search text directly to the OpenStreetMap services that power the finder — Nominatim for place names and the Overpass API mirrors for station data — because those services need the location to answer the question. Those services are operated by the OpenStreetMap Foundation, its partners and community mirror operators, under their own privacy policies, and they may log requests (such as IP address and the query itself) for operational and abuse-prevention purposes, as most web services do.</p>
+          <h2>What we store</h2>
+          <p>Nothing. This website sets no accounts, keeps no search history, and does not store your location or searches anywhere. We do not run our own analytics on your visits and we do not build profiles of visitors. The page may keep a temporary note of your last search point in the browser's memory while the tab is open, purely so changing the search radius can re-run the same search; it disappears when you close the tab.</p>
+          <h2>Third-party services shown on the page</h2>
+          <p>Search results include an embedded map view served by OpenStreetMap, and Directions links that open Google Maps in a new tab. Loading the map means your browser contacts OpenStreetMap's tile servers; following a Directions link takes you to Google, whose own privacy policy then applies. Web fonts used for the site's typography are loaded from Google Fonts, which means your browser contacts Google's font servers when the page loads.</p>
+          <h2>Cookies</h2>
+          <p>This website does not set advertising or tracking cookies. The third-party services described above may set their own cookies when you interact with them, under their own policies.</p>
+          <h2>Changes and contact</h2>
+          <p>If this policy changes, the updated version will be published on this page. Questions about privacy can be sent to <a href="mailto:contact@evcharginghub.github.io">contact@evcharginghub.github.io</a>.</p>
+        </div>
+      </section>
+
+      <!-- ============ TERMS ============ -->
+      <section class="page" id="page-terms">
+        <div class="prose article-body">
+          <a class="back-link" href="#/">← Back to home</a>
+          <h1>Terms of Use</h1>
+          <p class="byline">Last updated: 2026.</p>
+          <p>By using EV Charging Nearby you accept these terms. If you do not agree with them, please do not use the site.</p>
+          <h2>The service</h2>
+          <p>EV Charging Nearby is a free tool that displays public electric vehicle charging station locations drawn from OpenStreetMap data, together with calculated distances and links to third-party directions services. It is provided for personal, non-commercial use in planning journeys and locating charging facilities.</p>
+          <h2>Accuracy of information</h2>
+          <p>Station locations, names, operators, addresses and any recorded details such as connector types or power ratings originate from OpenStreetMap, a volunteer-maintained database. We do not verify individual records and we cannot guarantee that any station exists, is accessible, is operational, is unoccupied, or supports your vehicle at the time of your visit. Distances are straight-line calculations and are approximate. Always confirm critical details — live availability, connector compatibility, access restrictions and price — with the station operator before relying on them, and never drive beyond your remaining range on the assumption that a listed charger will be available.</p>
+          <h2>Availability of the service</h2>
+          <p>The finder depends on free third-party services (including Nominatim and public Overpass API mirrors) that we do not control. The service may be slow or unavailable at times, and we accept no liability for failed, delayed or incomplete searches. The site itself is provided "as is" without warranties of any kind.</p>
+          <h2>Acceptable use</h2>
+          <p>Do not use the site in any way that breaches the usage policies of the underlying OpenStreetMap services, attempts to overload them, or breaks applicable law. Heavy automated querying of those public services through this page is not permitted; the OpenStreetMap community provides them for reasonable use.</p>
+          <h2>Liability</h2>
+          <p>To the fullest extent permitted by law, we are not liable for any loss or inconvenience arising from reliance on information shown on this site, including missed journeys, unavailable chargers or incorrect station details. Road safety remains your responsibility at all times: never interact with this site while driving.</p>
+          <h2>Changes</h2>
+          <p>We may update these terms from time to time; the current version will always be on this page. Questions can be sent to <a href="mailto:contact@evcharginghub.github.io">contact@evcharginghub.github.io</a>.</p>
+        </div>
+      </section>
+
+      <!-- ============ DISCLAIMER ============ -->
+      <section class="page" id="page-disclaimer">
+        <div class="prose article-body">
+          <a class="back-link" href="#/">← Back to home</a>
+          <h1>Disclaimer</h1>
+          <p class="byline">Last updated: 2026.</p>
+          <p>EV Charging Nearby is an independent information tool. It is not affiliated with, endorsed by, or connected to any vehicle manufacturer, charging network, energy supplier or mapping organisation, including the OpenStreetMap Foundation, whose open data the finder uses under the Open Database License. Names of networks, operators and places shown in results belong to their respective owners and appear only to identify the stations concerned.</p>
+          <p>All station information is drawn from OpenStreetMap and is provided for general guidance only. Locations may be incomplete or out of date; connector types, charging speeds, opening hours, access rules and prices recorded in the data are not verified and are not guaranteed. Critically, no free live data feed exists for public charger availability, so this site cannot and does not state whether any charger is free, busy, working or broken at the moment you look. Verify essential details with the operator — through their app, website or the station itself — before travelling, and always keep a backup charging option within your remaining range.</p>
+          <p>The articles published on this site are general educational content written in plain language. Figures given for charging speeds, times and range are typical values for illustration; your car's actual performance will vary with its model, battery condition, temperature and the specific charger used. Nothing on this site is professional, engineering or financial advice.</p>
+          <p>External links, including directions links to Google Maps and map views from OpenStreetMap, lead to services operated by others; we are not responsible for their content, accuracy or availability.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <span class="f-brand">EV Charging Nearby</span>
+          <p>Find public electric vehicle charging stations near you, with real distances and directions. Powered by open OpenStreetMap data.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="#/how-it-works">How It Works</a>
+          <a href="#/articles">Articles</a>
+          <a href="#/faq">FAQ</a>
+          <a href="#/about">About</a>
+          <a href="#/contact">Contact</a>
+          <a href="#/privacy-policy">Privacy Policy</a>
+          <a href="#/terms">Terms</a>
+          <a href="#/disclaimer">Disclaimer</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">© 2026 EV Charging Nearby · Map data © OpenStreetMap contributors, available under the Open Database License.</div>
+    </footer>
+
+    <script>
+      (function () {
+        "use strict";
+
+        /* ---------- Hash router ---------- */
+        var ROUTES = {
+          "": "home",
+          "/": "home",
+          "/how-it-works": "how-it-works",
+          "/articles": "articles",
+          "/ev-charging-levels-explained": "ev-charging-levels-explained",
+          "/how-long-to-charge-ev": "how-long-to-charge-ev",
+          "/free-ev-charging": "free-ev-charging",
+          "/faq": "faq",
+          "/about": "about",
+          "/contact": "contact",
+          "/privacy-policy": "privacy-policy",
+          "/terms": "terms",
+          "/disclaimer": "disclaimer"
+        };
+        var TITLES = {
+          "home": "EV Charging Nearby — Find Electric Vehicle Charging Stations Near You",
+          "how-it-works": "How It Works — EV Charging Nearby",
+          "articles": "Articles — EV Charging Nearby",
+          "ev-charging-levels-explained": "EV Charging Levels Explained: Level 1, Level 2 and DC Fast Charging — EV Charging Nearby",
+          "how-long-to-charge-ev": "How Long Does It Take to Charge an Electric Car? — EV Charging Nearby",
+          "free-ev-charging": "How to Find Free EV Charging Near You — EV Charging Nearby",
+          "faq": "Frequently Asked Questions — EV Charging Nearby",
+          "about": "About — EV Charging Nearby",
+          "contact": "Contact — EV Charging Nearby",
+          "privacy-policy": "Privacy Policy — EV Charging Nearby",
+          "terms": "Terms of Use — EV Charging Nearby",
+          "disclaimer": "Disclaimer — EV Charging Nearby"
+        };
+        var NAV_OF = {
+          "home": "home",
+          "how-it-works": "how-it-works",
+          "articles": "articles",
+          "ev-charging-levels-explained": "articles",
+          "how-long-to-charge-ev": "articles",
+          "free-ev-charging": "articles",
+          "faq": "faq",
+          "about": "about",
+          "contact": "contact"
+        };
+
+        function currentRoute() {
+          var h = window.location.hash.replace(/^#/, "");
+          return Object.prototype.hasOwnProperty.call(ROUTES, h) ? ROUTES[h] : "home";
+        }
+        function render() {
+          var route = currentRoute();
+          var pages = document.querySelectorAll(".page");
+          for (var i = 0; i < pages.length; i++) {
+            pages[i].classList.toggle("current", pages[i].id === "page-" + route);
+          }
+          var links = document.querySelectorAll("[data-nav]");
+          for (var j = 0; j < links.length; j++) {
+            links[j].classList.toggle("active", links[j].getAttribute("data-nav") === NAV_OF[route]);
+          }
+          document.title = TITLES[route] || TITLES.home;
+          window.scrollTo(0, 0);
+        }
+        window.addEventListener("hashchange", render);
+        render();
+
+        /* ---------- Finder ---------- */
+        var OVERPASS_MIRRORS = [
+          "https://overpass-api.de/api/interpreter",
+          "https://overpass.kumi.systems/api/interpreter",
+          "https://overpass.nchc.org.tw/api/interpreter"
+        ];
+        var OVERALL_LIMIT_MS = 60000;
+        var SLOW_NOTE_MS = 5000;
+
+        var form = document.getElementById("search-form");
+        var input = document.getElementById("search-input");
+        var searchBtn = document.getElementById("search-btn");
+        var locateBtn = document.getElementById("locate-btn");
+        var radiusSelect = document.getElementById("radius-select");
+        var statusEl = document.getElementById("status");
+        var noticeSlot = document.getElementById("notice-slot");
+        var mapFrame = document.getElementById("map-frame");
+        var mapIframe = document.getElementById("osm-map");
+        var resultsHead = document.getElementById("results-head");
+        var resultsTitle = document.getElementById("results-title");
+        var resultsSub = document.getElementById("results-sub");
+        var resultsList = document.getElementById("results-list");
+
+        var lastPoint = null;   // {lat, lon, label}
+        var searching = false;
+
+        function setBusy(busy) {
+          searching = busy;
+          searchBtn.disabled = busy;
+          locateBtn.disabled = busy;
+        }
+        function setStatus(html) { statusEl.innerHTML = html; }
+        function clearNotice() { noticeSlot.innerHTML = ""; }
+        function showNotice(kind, text) {
+          noticeSlot.innerHTML = "";
+          var div = document.createElement("div");
+          div.className = "notice notice-" + kind;
+          div.setAttribute("role", "alert");
+          var p = document.createElement("p");
+          p.textContent = text;
+          div.appendChild(p);
+          noticeSlot.appendChild(div);
+        }
+        function radiusMiles() { return parseFloat(radiusSelect.value) || 10; }
+
+        function haversineMiles(lat1, lon1, lat2, lon2) {
+          var R = 3958.8; // Earth radius in miles
+          var dLat = (lat2 - lat1) * Math.PI / 180;
+          var dLon = (lon2 - lon1) * Math.PI / 180;
+          var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                  Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                  Math.sin(dLon / 2) * Math.sin(dLon / 2);
+          return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        }
+
+        function updateMap(lat, lon, radiusMi) {
+          var latDelta = radiusMi / 69.0;
+          var lonDelta = radiusMi / (69.0 * Math.max(0.2, Math.cos(lat * Math.PI / 180)));
+          var bbox = (lon - lonDelta).toFixed(5) + "," + (lat - latDelta).toFixed(5) + "," +
+                     (lon + lonDelta).toFixed(5) + "," + (lat + latDelta).toFixed(5);
+          mapIframe.src = "https://www.openstreetmap.org/export/embed.html?bbox=" +
+            encodeURIComponent(bbox) + "&layer=mapnik&marker=" +
+            encodeURIComponent(lat.toFixed(6) + "," + lon.toFixed(6));
+          mapFrame.classList.add("show");
+        }
+
+        function stationName(tags) {
+          return tags.name || tags.operator || tags.brand || "Charging station";
+        }
+        function stationAddress(tags) {
+          var parts = [];
+          var street = "";
+          if (tags["addr:housenumber"]) street = tags["addr:housenumber"] + " ";
+          if (tags["addr:street"]) street += tags["addr:street"];
+          if (street.trim()) parts.push(street.trim());
+          var city = tags["addr:city"] || tags["addr:town"] || tags["addr:village"] || "";
+          if (city) parts.push(city);
+          if (tags["addr:postcode"]) parts.push(tags["addr:postcode"]);
+          return parts.length ? parts.join(", ") : "Address not recorded in OpenStreetMap — use the Directions link to navigate to the exact point.";
+        }
+
+        function renderResults(stations, point, radiusMi) {
+          resultsList.innerHTML = "";
+          if (!stations.length) {
+            resultsTitle.textContent = "No charging stations found";
+            resultsSub.textContent = "No stations are recorded in OpenStreetMap within " + radiusMi +
+              " miles of " + point.label + ". Try a wider radius, or search for a larger nearby town — coverage is thinner in rural areas.";
+            resultsHead.classList.add("show");
+            return;
+          }
+          resultsTitle.textContent = stations.length + (stations.length === 1 ? " charging station" : " charging stations") + " near " + point.label;
+          resultsSub.textContent = "Within " + radiusMi + " miles, nearest first. Distances are straight-line; tap Directions for the real road route. Connector types, speeds and live availability are not guaranteed — see the note below the finder.";
+          resultsHead.classList.add("show");
+
+          stations.forEach(function (s) {
+            var li = document.createElement("li");
+            li.className = "result-item";
+
+            var main = document.createElement("div");
+            main.className = "result-main";
+            var name = document.createElement("p");
+            name.className = "result-name";
+            name.textContent = s.name;
+            main.appendChild(name);
+            if (s.operator && s.operator !== s.name) {
+              var op = document.createElement("p");
+              op.className = "result-meta";
+              op.textContent = "Operator: " + s.operator;
+              main.appendChild(op);
+            }
+            var addr = document.createElement("p");
+            addr.className = "result-meta";
+            addr.textContent = s.address;
+            main.appendChild(addr);
+            li.appendChild(main);
+
+            var side = document.createElement("div");
+            side.className = "result-side";
+            var dist = document.createElement("div");
+            dist.className = "result-dist";
+            dist.textContent = s.dist < 0.1 ? "<0.1 mi" : s.dist.toFixed(1) + " mi";
+            var dsmall = document.createElement("small");
+            dsmall.textContent = "away";
+            dist.appendChild(dsmall);
+            side.appendChild(dist);
+            var dir = document.createElement("a");
+            dir.className = "dir-link";
+            dir.href = "https://www.google.com/maps/dir/?api=1&destination=" + s.lat + "," + s.lon;
+            dir.target = "_blank";
+            dir.rel = "noopener";
+            dir.textContent = "Directions →";
+            side.appendChild(dir);
+            li.appendChild(side);
+
+            resultsList.appendChild(li);
+          });
+        }
+
+        function fetchFromMirror(url, query, controller) {
+          return fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" },
+            body: "data=" + encodeURIComponent(query),
+            signal: controller.signal
+          }).then(function (res) {
+            if (!res.ok) throw new Error("Mirror responded " + res.status);
+            return res.json();
+          }).then(function (json) {
+            if (!json || !Array.isArray(json.elements)) throw new Error("Unexpected response");
+            return json;
+          });
+        }
+
+        function queryStations(lat, lon, radiusMi, onSlow) {
+          var radiusM = Math.round(radiusMi * 1609.344);
+          var query = "[out:json][timeout:50];" +
+            "(node[\"amenity\"=\"charging_station\"](around:" + radiusM + "," + lat + "," + lon + ");" +
+            "way[\"amenity\"=\"charging_station\"](around:" + radiusM + "," + lat + "," + lon + "););" +
+            "out center tags;";
+          var controllers = OVERPASS_MIRRORS.map(function () { return new AbortController(); });
+          var slowTimer = setTimeout(onSlow, SLOW_NOTE_MS);
+
+          var attempts = OVERPASS_MIRRORS.map(function (url, i) {
+            return fetchFromMirror(url, query, controllers[i]);
+          });
+
+          var overall = new Promise(function (resolve, reject) {
+            var done = false;
+            var failures = 0;
+            var timer = setTimeout(function () {
+              if (!done) { done = true; reject(new Error("timeout")); }
+            }, OVERALL_LIMIT_MS);
+            attempts.forEach(function (p) {
+              p.then(function (json) {
+                if (!done) { done = true; clearTimeout(timer); resolve(json); }
+              }, function () {
+                failures++;
+                if (failures === attempts.length && !done) {
+                  done = true; clearTimeout(timer); reject(new Error("all mirrors failed"));
+                }
+              });
+            });
+          });
+
+          return overall.then(function (json) {
+            clearTimeout(slowTimer);
+            controllers.forEach(function (c) { try { c.abort(); } catch (e) {} });
+            return json;
+          }, function (err) {
+            clearTimeout(slowTimer);
+            controllers.forEach(function (c) { try { c.abort(); } catch (e) {} });
+            throw err;
+          });
+        }
+
+        function runSearch(point) {
+          if (searching) return;
+          lastPoint = point;
+          var radiusMi = radiusMiles();
+          setBusy(true);
+          clearNotice();
+          resultsHead.classList.remove("show");
+          resultsList.innerHTML = "";
+          setStatus('<span class="spinner" aria-hidden="true"></span>Searching for charging stations near ' +
+            escapeHtml(point.label) + "…");
+          updateMap(point.lat, point.lon, radiusMi);
+
+          queryStations(point.lat, point.lon, radiusMi, function () {
+            setStatus('<span class="spinner" aria-hidden="true"></span>Still searching… the free OpenStreetMap servers can be slow at busy times.');
+          }).then(function (json) {
+            var seen = {};
+            var stations = [];
+            json.elements.forEach(function (el) {
+              var lat = (el.type === "node") ? el.lat : (el.center && el.center.lat);
+              var lon = (el.type === "node") ? el.lon : (el.center && el.center.lon);
+              if (typeof lat !== "number" || typeof lon !== "number") return;
+              var key = el.type + "/" + el.id;
+              if (seen[key]) return;
+              seen[key] = true;
+              var tags = el.tags || {};
+              stations.push({
+                name: stationName(tags),
+                operator: tags.operator || "",
+                address: stationAddress(tags),
+                lat: lat, lon: lon,
+                dist: haversineMiles(point.lat, point.lon, lat, lon)
+              });
+            });
+            stations.sort(function (a, b) { return a.dist - b.dist; });
+            setStatus("");
+            renderResults(stations, point, radiusMi);
+          }).catch(function () {
+            setStatus("");
+            showNotice("error", "We could not reach the OpenStreetMap station service just now — all three lookup servers failed to respond in time. This usually means the free public servers are overloaded. Please wait a moment and try again; no results have been made up in the meantime.");
+          }).then(function () { setBusy(false); });
+        }
+
+        function escapeHtml(s) {
+          return String(s).replace(/[&<>"']/g, function (c) {
+            return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+          });
+        }
+
+        form.addEventListener("submit", function (ev) {
+          ev.preventDefault();
+          if (searching) return;
+          var q = input.value.trim();
+          if (!q) {
+            clearNotice();
+            showNotice("warn", "Type a city, town or ZIP code first — or tap \"Use my location\".");
+            input.focus();
+            return;
+          }
+          setBusy(true);
+          clearNotice();
+          setStatus('<span class="spinner" aria-hidden="true"></span>Looking up "' + escapeHtml(q) + '"…');
+          fetch("https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=" + encodeURIComponent(q), {
+            headers: { "Accept": "application/json" }
+          }).then(function (res) {
+            if (!res.ok) throw new Error("geocode " + res.status);
+            return res.json();
+          }).then(function (data) {
+            setBusy(false);
+            if (!data || !data.length) {
+              setStatus("");
+              showNotice("warn", "We could not find a place matching \"" + q + "\". Check the spelling, or try adding a state or country — for example \"Springfield, IL\".");
+              return;
+            }
+            var place = data[0];
+            var label = (place.display_name || q).split(",").slice(0, 2).join(",").trim() || q;
+            runSearch({ lat: parseFloat(place.lat), lon: parseFloat(place.lon), label: label });
+          }).catch(function () {
+            setBusy(false);
+            setStatus("");
+            showNotice("error", "The place lookup service (Nominatim) could not be reached, so the search cannot run. Please check your connection and try again in a moment.");
+          });
+        });
+
+        locateBtn.addEventListener("click", function () {
+          if (searching) return;
+          clearNotice();
+          if (!("geolocation" in navigator)) {
+            showNotice("error", "This browser does not support location lookup. Please type a city, town or ZIP code instead.");
+            return;
+          }
+          setBusy(true);
+          setStatus('<span class="spinner" aria-hidden="true"></span>Getting your location…');
+          navigator.geolocation.getCurrentPosition(function (pos) {
+            setBusy(false);
+            runSearch({
+              lat: pos.coords.latitude,
+              lon: pos.coords.longitude,
+              label: "your location"
+            });
+          }, function (err) {
+            setBusy(false);
+            setStatus("");
+            if (err && err.code === 1) {
+              showNotice("warn", "Location permission was denied, so we cannot search around you. Allow location access in your browser, or type a city, town or ZIP code instead.");
+            } else {
+              showNotice("error", "Your device could not provide a location just now. Please try again, or type a city, town or ZIP code instead.");
+            }
+          }, { timeout: 15000, maximumAge: 60000 });
+        });
+
+        radiusSelect.addEventListener("change", function () {
+          if (lastPoint && !searching) runSearch(lastPoint);
+        });
+      })();
+    </script>
+  </body>
+</html>
